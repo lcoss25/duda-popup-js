@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive SVG Map with Popups</title>
+  <style>
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .popup-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 90%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .close-popup {
+      float: right;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Example Interactive Buttons</h2>
+<button onclick="showPopup('safehome')">Safehome</button>
+<button onclick="showPopup('friendsofyates')">Friends of Yates</button>
+
+<!-- Popup container -->
+<div id="popup" class="popup-overlay" onclick="hidePopup()">
+  <div class="popup-content" onclick="event.stopPropagation()">
+    <span class="close-popup" onclick="hidePopup()">&times;</span>
+    <div id="popup-text"></div>
+  </div>
+</div>
+
+<script src="popup_full.js"></script>
+
+</body>
+</html>
